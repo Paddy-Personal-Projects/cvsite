@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrick Wilson — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A38;
+    --teal:#2C6E63;
+    --teal-deep:#1F4F47;
+    --gold:#C79A56;
+    --paper:#F7F5F0;
+    --panel:#12222C;
+    --slate:#5B6670;
+    --line:#DAD5C9;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:#E7E2D6;
+    font-family:'Source Sans 3', sans-serif;
+    color:var(--ink);
+    padding:40px 16px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .page{
+    width:100%;
+    max-width:960px;
+    background:var(--paper);
+    box-shadow:0 20px 50px rgba(18,34,44,0.18);
+    display:grid;
+    grid-template-columns:290px 1fr;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    background:var(--panel);
+    color:#EDEBE3;
+    padding:44px 32px;
+    position:relative;
+  }
+
+  .name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:2.1rem;
+    line-height:1.15;
+    letter-spacing:0.2px;
+    color:#fff;
+  }
+
+  .role{
+    margin-top:6px;
+    font-size:0.85rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  .waterline{
+    width:100%;
+    height:14px;
+    margin:22px 0 30px;
+    opacity:0.9;
+  }
+
+  .side-block{ margin-bottom:30px; }
+  .side-block:last-child{ margin-bottom:0; }
+
+  .side-label{
+    font-size:0.7rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:12px;
+  }
+
+  .contact-item{
+    font-size:0.86rem;
+    line-height:1.6;
+    color:#D7D3C6;
+    word-break:break-word;
+  }
+
+  .contact-item a{
+    color:#D7D3C6;
+    text-decoration:none;
+    border-bottom:1px solid rgba(215,211,198,0.35);
+  }
+
+  .side-block ul{ list-style:none; }
+  .side-block li{
+    font-size:0.86rem;
+    line-height:1.55;
+    color:#D7D3C6;
+    padding-left:16px;
+    position:relative;
+    margin-bottom:10px;
+  }
+  .side-block li:last-child{ margin-bottom:0; }
+  .side-block li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:6px; height:6px;
+    background:var(--teal);
+    border:1px solid var(--gold);
+    border-radius:1px;
+  }
+
+  .ref-pair{ display:grid; gap:20px; }
+  .ref-name{ font-weight:600; color:#fff; font-size:0.9rem; }
+  .ref-role{ font-size:0.8rem; color:#B9B4A5; margin:2px 0 6px; }
+  .ref-email{ font-size:0.8rem; color:var(--gold); word-break:break-word; }
+
+  /* ---------- MAIN ---------- */
+  .main{ padding:48px 46px; }
+
+  .section{ margin-bottom:32px; }
+  .section:last-child{ margin-bottom:0; }
+
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    font-weight:600;
+    color:var(--teal-deep);
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:16px;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+    transform:translateY(-3px);
+  }
+
+  .profile-text{
+    font-size:0.96rem;
+    line-height:1.7;
+    color:#333F49;
+    max-width:64ch;
+  }
+  .profile-text + .profile-text{ margin-top:12px; }
+
+  /* Skills profile */
+  .skill-item{
+    margin-bottom:18px;
+  }
+  .skill-item:last-child{ margin-bottom:0; }
+  .skill-heading{
+    font-weight:700;
+    font-size:0.92rem;
+    color:var(--teal-deep);
+    margin-bottom:4px;
+  }
+  .skill-text{
+    font-size:0.9rem;
+    line-height:1.65;
+    color:#3A4550;
+    max-width:64ch;
+  }
+
+  .edu-row{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:18px;
+  }
+  .edu-row:last-child{ border-bottom:none; }
+  .edu-date{
+    font-size:0.8rem;
+    color:var(--teal);
+    font-weight:600;
+    letter-spacing:0.3px;
+    white-space:nowrap;
+  }
+  .edu-title{ font-weight:600; font-size:0.95rem; color:var(--ink); }
+  .edu-detail{ font-size:0.86rem; color:var(--slate); margin-top:2px; line-height:1.5; }
+  .edu-modules{ font-size:0.83rem; color:var(--slate); margin-top:6px; line-height:1.55; }
+  .edu-modules b{ color:#3A4550; font-weight:600; }
+
+  .job{ margin-bottom:26px; }
+  .job:last-child{ margin-bottom:0; }
+
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:4px;
+  }
+  .job-title{
+    font-weight:700;
+    font-size:1rem;
+    color:var(--ink);
+  }
+  .job-place{
+    font-weight:400;
+    color:var(--slate);
+  }
+  .job-date{
+    font-size:0.8rem;
+    color:var(--teal);
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  .job ul{
+    list-style:none;
+    margin-top:10px;
+  }
+  .job li{
+    font-size:0.9rem;
+    line-height:1.6;
+    color:#3A4550;
+    padding-left:18px;
+    position:relative;
+    margin-bottom:6px;
+  }
+  .job li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  @media (max-width:720px){
+    .page{ grid-template-columns:1fr; }
+    .sidebar{ padding:36px 28px; }
+    .main{ padding:36px 28px; }
+    .edu-row{ grid-template-columns:1fr; gap:4px; }
+    .ref-pair{ grid-template-columns:1fr; }
+  }
+
+  @media print{
+    body{ background:#fff; padding:0; }
+    .page{ box-shadow:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="name">Patrick<br>Wilson</div>
+    <div class="role">BSc Computer Science</div>
+
+    <svg class="waterline" viewBox="0 0 290 14" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,7 C 18,0 36,14 54,7 C 72,0 90,14 108,7 C 126,0 144,14 162,7 C 180,0 198,14 216,7 C 234,0 252,14 270,7 C 280,4.5 285,4.5 290,7"
+            fill="none" stroke="#2C6E63" stroke-width="2.4"/>
+    </svg>
+
+    <div class="side-block">
+      <div class="side-label">Contact</div>
+      <div class="contact-item">17 Nicholson Terrace<br>Derry/Londonderry, County Derry/Londonderry<br>BT48 7LH</div>
+      <div class="contact-item" style="margin-top:8px;">
+        <a href="mailto:Wilson-p34@ulster.ac.uk">Wilson-p34@ulster.ac.uk</a>
+      </div>
+      <div class="contact-item">(M) +44 (0)7928 404280</div>
+      <div class="contact-item">LinkedIn Profile</div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">References</div>
+      <div class="ref-pair">
+        <div>
+          <div class="ref-name">Mairin Nicell</div>
+          <div class="ref-role">Senior Lecturer, Ulster University</div>
+          <div class="ref-email">ma.nicell@ulster.ac.uk</div>
+        </div>
+        <div>
+          <div class="ref-name">Glenn Picken</div>
+          <div class="ref-role">Duty Officer, Carrickfergus Amphitheatre</div>
+          <div class="ref-email">glenn.picken@midandeastantrim.gov.uk</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <section class="section">
+      <div class="section-title">Profile</div>
+      <p class="profile-text">
+        Computer Science B.Sc. (Hons) student at Ulster University, going into my final year.
+      </p>
+      <p class="profile-text">
+        Other than academics, I have a strong background in team sports, including rugby and basketball, where
+        I have developed discipline, leadership and teamwork skills. I am also an avid volunteer, having
+        volunteered in Central America as well as at home, and a hiker, having completed the Camino Frances.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Skills Profile</div>
+
+      <div class="skill-item">
+        <div class="skill-heading">Technical Skills</div>
+        <p class="skill-text">
+          Skilled in C#, Java, HTML and CSS, with strong modular problem-solving ability. Completed projects
+          on Windows OS utilising MySQL and AWS for data storage, along with effective communication, technical
+          documentation, data analysis and presentations. Strong analytical and problem-solving skills, with
+          experience working both academically and professionally with the Microsoft 365 suite.
+        </p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-heading">Leadership</div>
+        <p class="skill-text">
+          Took the position of team leader in Database Systems, planning the project, assigning roles to each
+          team member based on their skillset and managing submissions. Course Representative in Year 2.
+        </p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-heading">Communication</div>
+        <p class="skill-text">
+          Relaying crucial information in a concise manner to prevent life-threatening situations while working
+          as a lifeguard. Able to instruct customers while maintaining rapport, and working with the reception
+          admin team over Microsoft Teams to resolve membership issues.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Education &amp; Qualifications</div>
+
+      <div class="edu-row">
+        <div class="edu-date">Sept 2023 – June 2027</div>
+        <div>
+          <div class="edu-title">BSc (Hons) Computer Science</div>
+          <div class="edu-detail">Ulster University · On track for 2.1</div>
+          <div class="edu-modules">
+            <b>Year 2:</b> Professional Development, UX, Object Oriented Programming, Mobile Application
+            Development, Cloud Computing, Algorithms and Data Structures, Computer Networks and Security.
+          </div>
+          <div class="edu-modules">
+            <b>Year 1:</b> Software Development 1, Software Development 2, Mathematics for Computing, Systems
+            Analysis and Design, Computer Hardware and Operating Systems, Database Systems.
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-date">Sept 2021 – June 2023</div>
+        <div>
+          <div class="edu-title">Belfast Metropolitan College</div>
+          <div class="edu-detail">OCR Cambridge Technical in Software Development Fundamentals — Distinction / Merit / Merit (112 UCAS points)</div>
+        </div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-date">Sept 2019 – June 2021</div>
+        <div>
+          <div class="edu-title">Carrickfergus Grammar School</div>
+          <div class="edu-detail">9 GCSEs (Grades B–C), including English, Maths and Sciences</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Employment History</div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Receptionist <span class="job-place">— Carrickfergus Amphitheatre</span></div>
+          <div class="job-date">Aug 2025 – Present</div>
+        </div>
+        <ul>
+          <li>Delivered high-quality customer service</li>
+          <li>Balanced competing demands based on priority and urgency</li>
+          <li>Resolved database management issues</li>
+          <li>Assisted colleagues with troubleshooting or escalating technical issues</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Lifeguard <span class="job-place">— Carrickfergus Amphitheatre</span></div>
+          <div class="job-date">Sept 2023 – Present</div>
+        </div>
+        <ul>
+          <li>Ensured the safety of pool users through supervision and adherence to safety protocols</li>
+          <li>Provided first aid and lifesaving assistance as needed</li>
+          <li>Worked on own initiative to solve novel problems</li>
+          <li>Prioritised tasks by importance and urgency</li>
+          <li>Continually improved via staff training</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
